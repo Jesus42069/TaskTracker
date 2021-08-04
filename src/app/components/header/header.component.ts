@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit { 
   
-  title: string = 'Task Tracker'
+  title: string = 'Task Tracker';
 
   constructor() { }
 
@@ -15,6 +15,6 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleAddTask() {
-    console.log('lol')
+    console.log('lol');
   }
 }
