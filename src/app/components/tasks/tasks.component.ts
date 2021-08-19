@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskHolderServiceService } from 'src/app/services/task-holder-service.service';
 import { TaskService } from 'src/app/services/task.service';
 import {Task} from '../../Task';
 
@@ -10,11 +11,11 @@ import {Task} from '../../Task';
 })
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, public taskHolderService: TaskHolderServiceService) { }
 
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks: Task[]) => {
-      this.tasks = tasks;
+      this.taskHolderService.tasks = tasks;
     });
   }
 
@@ -32,6 +33,8 @@ export class TasksComponent implements OnInit {
   }
 
 addTask (task: Task) {
-  this.taskService.addTask(task).subscribe((task) => (this.tasks.push(task)));
+  this.taskService.addTask(task).subscribe((task) => (this.taskHolderService.tasks.push(task)));
   }
+
+
 }

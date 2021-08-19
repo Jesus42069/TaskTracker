@@ -1,0 +1,10 @@
+<div class="form-control">
+    <label for="Search">Search</label>
+    <input type="text" name="Search" [(ngModel)]="search" (input)="onSearchChange($event.target.value)" id="Search" placeholder="lol" />
+ 
+    <app-button
+    color="{{'green'}}"
+     text="{{'Search'}}"
+     (btnClick)="searchTasks()"
+     ></app-button> 
+</div>
